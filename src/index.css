@@ -1,0 +1,227 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.navbar-glow {
+  background-color: #1f1f48;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 -1px 10px rgba(150, 95, 212, 0.5);
+}
+
+.nav-icon {
+  color: #aaa;
+  transition: all 0.3s ease;
+}
+
+.nav-icon.active {
+  color: #6f00ff;
+  text-shadow: 0 0 5px #6f00ff, 0 0 10px #6f00ff;
+}
+
+* Agrega esto a tu archivo CSS principal */
+
+.navbar-cyberpunk {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+  margin: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.nav-glass-container {
+  background: rgba(0, 8, 20, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 16px;
+  position: relative;
+  padding: 16px 8px 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 255, 255, 0.1),
+    inset 0 1px 0 rgba(0, 255, 255, 0.1);
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.nav-icon-wrapper {
+  position: relative;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  background: rgba(0, 20, 40, 0.6);
+  transition: all 0.3s ease;
+  margin-bottom: 4px;
+}
+
+.nav-icon {
+  color: rgba(0, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.nav-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgba(0, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  font-family: 'Courier New', monospace;
+}
+
+/* Estados activos */
+.nav-icon-wrapper.active {
+  border-color: #00ffff;
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.nav-icon-wrapper.active .nav-icon {
+  color: #00ffff;
+  filter: drop-shadow(0 0 8px #00ffff);
+}
+
+.nav-icon-wrapper.active .nav-glow {
+  opacity: 1;
+}
+
+.nav-icon-wrapper.active + .nav-label {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* Línea de escaneo animada */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #00ffff 50%, 
+    transparent 100%);
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Hover effects */
+.nav-item:hover .nav-icon-wrapper:not(.active) {
+  border-color: rgba(0, 255, 255, 0.5);
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.nav-item:hover .nav-icon:not(.active) {
+  color: rgba(0, 255, 255, 0.9);
+}
+
+.nav-item:hover .nav-label {
+  color: rgba(0, 255, 255, 0.8);
+}
