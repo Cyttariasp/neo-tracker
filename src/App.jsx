@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Home from './pages/Home'
 import BottomNavbar from './components/BottomNavbar'
+import Transactions from './pages/Transactions'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <div className="mb-5">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/transactions" element={<Transactions />} />
           </Routes>
         </div >
         <BottomNavbar />

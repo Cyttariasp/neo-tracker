@@ -14,7 +14,7 @@ function BottomNavbar() {
         <div className={`small ${isActive('/') ? 'text-white' : 'text-secondary'}`}>Home</div>
       </Link>
       <Link to="/transactions" className="text-center text-decoration-none">
-        <WalletMinimal- size={24} className={`nav-icon ${isActive('/transactions') ? 'active' : ''}`} />
+        <WalletMinimal size={24} className={`nav-icon ${isActive('/transactions') ? 'active' : ''}`} />
         <div className={`small ${isActive('/transactions') ? 'text-white' : 'text-secondary'}`}>Transactions</div>
       </Link>
       <Link to="/insights" className="text-center text-decoration-none">
