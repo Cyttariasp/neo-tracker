@@ -88,8 +88,6 @@ button:focus-visible {
   text-shadow: 0 0 5px #6f00ff, 0 0 10px #6f00ff;
 }
 
-* Agrega esto a tu archivo CSS principal */
-
 .navbar-cyberpunk {
   position: fixed;
   bottom: 0;

@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { House, WalletMinimal, Sparkles, Settings } from 'lucide-react';
+import AddNewExpensive from './AddNewExpense';
 
 function BottomNavbar() {
   const location = useLocation();
