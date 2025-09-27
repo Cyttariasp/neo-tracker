@@ -87,3 +87,30 @@ h1,h2,h3,.h4,.h5{ color:#f5f6fb; letter-spacing:.2px; }
 
 /* FAB */
 .btn-fab{ box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+
+/* === Category Badge (neón) === */
+.cat-badge{
+  --c: #7c3aed;                         /* color inyectado desde inline-style */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f1324;                  /* superficie */
+  color: var(--c);                       /* color del ícono */
+  border: 1px solid rgba(255,255,255,.08);
+  /* brillo */
+  box-shadow:
+    0 2px 10px rgba(0,0,0,.35),
+    0 0 10px color-mix(in oklab, var(--c) 45%, transparent),
+    0 0 24px color-mix(in oklab, var(--c) 35%, transparent);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.cat-badge:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.45),
+    0 0 12px color-mix(in oklab, var(--c) 55%, transparent),
+    0 0 30px color-mix(in oklab, var(--c) 45%, transparent);
+}
+.cat-badge svg{
+  stroke-width: 2.2;
+}
