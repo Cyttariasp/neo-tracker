@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import AddNewExpense from "../components/AddNewExpense";
 import CategoryBadge from "../components/CategoryBadge";
+import { Trash2 } from 'lucide-react';
 
 // Helpers -----------------
 const loadTx = () => {
@@ -32,7 +33,6 @@ const labelByCategory = {
     ridehail: "Transport App",
     necessary: "Necesario",
 };
-// -------------------------
 
 function Transactions() {
     const [transactions, setTransactions] = useState(loadTx);
@@ -49,7 +49,6 @@ function Transactions() {
 
     const total = transactions.reduce((acc, t) => acc + (Number(t.amount) || 0), 0);
 
-    // Colores por categoría (puntito de color)
     const colorByCategory = {
         food: "#34d399",
         transport: "#60a5fa",
@@ -57,6 +56,11 @@ function Transactions() {
         delivery: "#f472b6",
         ridehail: "#22d3ee",
         necessary: "#a78bfa",
+    };
+
+    const handleDelete = (id) => {
+        if (!confirm("¿Eliminar este gasto?")) return;
+        setTransactions(prev => prev.filter(t => t.id !== id));
     };
 
     return (
@@ -80,8 +84,8 @@ function Transactions() {
                     </p>
                 </div>
             ) : (
-                <div className="card shadow-sm border-0 rounded-4 bg-dark-subtle text-dark">
-                    <ul className="list-group list-group-flush">
+                <div className="card shadow-sm border-0 rounded-4 text-dark m-0 p-1" style={{ backgroundColor: "#965fd4"}}>
+                    <ul className="list-group list-group-flush rounded-4">
                         {transactions.map((tx) => (
                             <li key={tx.id} className="list-group-item py-3">
                                 <div className="d-flex justify-content-between align-items-center">
@@ -98,7 +102,17 @@ function Transactions() {
                                         </div>
                                     </div>
 
-                                    <span className="badge bg-primary rounded-pill">{formatCurrency(tx.amount)}</span>
+                                    <div className="d-flex align-items-center gap-2">
+                                        <span className="badge bg-primary rounded-pill">{formatCurrency(tx.amount)}</span>
+                                        <button
+                                            type="button"
+                                            className="btn btn-danger btn-sm"
+                                            onClick={() => handleDelete(tx.id)}
+                                            aria-label="Eliminar gasto"
+                                        >
+                                            <Trash2 size={16} />
+                                        </button>
+                                    </div>
                                 </div>
                             </li>
 

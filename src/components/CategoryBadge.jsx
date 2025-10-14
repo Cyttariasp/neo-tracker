@@ -12,12 +12,12 @@ const CategoryBadge = ({ category, size = "sm", className = "" }) => { // ← No
   };
 
   const Colors = {
-    food: "#22c55e",          // verde
-    transport: "#60a5fa",     // azul
-    entertainment: "#f59e0b", // ámbar
-    delivery: "#f472b6",      // rosa
-    ridehail: "#22d3ee",      // cian
-    necessary: "#a78bfa",     // violeta
+    food: "#22c55e",         
+    transport: "#60a5fa",    
+    entertainment: "#f59e0b",
+    delivery: "#f472b6",     
+    ridehail: "#22d3ee",     
+    necessary: "#a78bfa",    
   };
 
     const Icon = Icons[category] || Tag;
