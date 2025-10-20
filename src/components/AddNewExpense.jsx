@@ -51,6 +51,7 @@ function AddNewExpense({ onAdd }) {
         }
     };
 
+
     return (
         <>
             {/* Botón flotante */}
