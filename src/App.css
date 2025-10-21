@@ -10,11 +10,12 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
-  border: black 2px solid;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -23,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -40,4 +42,95 @@
 
 .read-the-docs {
   color: #888;
+}
+
+section>.px-3.py-2 {
+  font-size: .9rem;
+  color: var(--muted, #6b7280);
+  backdrop-filter: blur(6px);
+}
+
+/* Chips suaves */
+.badge.text-bg-light.border {
+  background: var(--card, #fff);
+  border-color: var(--border, #e5e7eb) !important;
+}
+
+/* Selects más “tocables” en móvil */
+.form-select {
+  min-height: 40px;
+}
+
+/* Header sticky principal (si usas .tx-sticky) */
+.tx-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg, #fff);
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  backdrop-filter: blur(6px);
+}
+
+/* Lista (por si aún no lo tienes) */
+.tx-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tx-item {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  background: var(--card, #fff);
+}
+
+.tx-item:last-child {
+  border-bottom: none;
+}
+
+.tx-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+}
+
+.tx-body {
+  min-width: 0;
+}
+
+.tx-title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tx-desc {
+  color: var(--muted, #6b7280);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tx-meta {
+  color: var(--muted, #6b7280);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.tx-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
