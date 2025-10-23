@@ -7,7 +7,7 @@ function BottomNavbar() {
 
   return (
     <nav
-      className="bottom-nav navbar fixed-bottom m-2 px-3 py-2 rounded-4 shadow-sm text-black"
+      className="bottom-nav navbar fixed-bottom m-2 px-3 py-2 rounded-4 shadow-sm "
       role="navigation"
       aria-label="Navegación inferior"
     >
