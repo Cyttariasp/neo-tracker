@@ -134,3 +134,97 @@ section>.px-3.py-2 {
   align-items: center;
   gap: 8px;
 }
+
+:root{
+  --app-bg: #f6f7fb;                 /* fondo general claro */
+  --surface: #ffffff;                /* tarjetas / navbar */
+  --surface-border: rgba(17,24,39,.07);
+  --text-strong: #0f172a;            /* títulos */
+  --text-muted: #64748b;             /* secundarios */
+  --brand: #7c3aed;                  /* violeta */
+  --brand-2: #22d3ee;                /* cian */
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --nav-surface: #ffffff;                   /* fondo navbar claro */
+  --nav-border: rgba(17,24,39,.08);         /* borde sutil */
+  --nav-shadow: 0 8px 24px rgba(2,6,23,.06);/* sombra suave */
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface: #0f1115;
+    --surface-border: rgba(255,255,255,.08);
+    --text-strong: #e5e7eb;
+    --text-muted: #9ca3af;
+  }
+}
+
+/* Contenedor del navbar */
+.bottom-nav{
+  border: 1px solid var(--surface-border);
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+  padding-bottom: calc(8px + var(--safe-bottom)); /* respeta notch */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+/* Cada tab */
+.bottom-tab{
+  text-decoration: none;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  padding: 4px 6px;
+  border-radius: 12px;
+  color: var(--text-muted);
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+
+/* Wrap del icono: mejora tap target */
+.bottom-tab .icon-wrap{
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  transition: background .25s ease, transform .2s ease, color .2s ease;
+}
+
+/* Etiqueta */
+.bottom-tab .label{
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--text-muted);
+  transition: color .2s ease, font-weight .2s ease;
+}
+
+/* Estado activo: píldora suave + texto marcado */
+.bottom-tab.is-active{
+  color: var(--text-strong);
+  transform: translateY(-1px);
+}
+
+.bottom-tab.is-active .icon-wrap{
+  color: #fff; /* icono en claro sobre el degradé */
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  box-shadow: 0 6px 16px rgba(124,58,237,.28);
+}
+
+.bottom-tab.is-active .label{
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+
+/* Hover/focus (accesibilidad) */
+.bottom-tab:focus-visible{
+  outline: 2px solid var(--brand-2);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+.bottom-tab:hover .icon-wrap{
+  transform: translateY(-1px);
+}

@@ -1,29 +1,58 @@
 import { Link, useLocation } from 'react-router-dom';
 import { House, WalletMinimal, Sparkles, Settings } from 'lucide-react';
-import AddNewExpensive from './AddNewExpense';
 
 function BottomNavbar() {
   const location = useLocation();
-
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="navbar fixed-bottom d-flex justify-content-around py-2 px-3 m-2 navbar-glow">
-      <Link to="/" className="text-center text-decoration-none">
-        <House size={24} className={`nav-icon ${isActive('/') ? 'active' : ''}`} />
-        <div className={`small ${isActive('/') ? 'text-black' : 'text-secondary'}`}>Home</div>
+    <nav
+      className="bottom-nav navbar fixed-bottom m-2 px-3 py-2 rounded-4 shadow-sm text-black"
+      role="navigation"
+      aria-label="Navegación inferior"
+    >
+      <Link
+        to="/"
+        className={`bottom-tab ${isActive('/') ? 'is-active' : ''}`}
+        aria-current={isActive('/') ? 'page' : undefined}
+      >
+        <span className="icon-wrap">
+          <House size={22} />
+        </span>
+        <small className="label">Home</small>
       </Link>
-      <Link to="/transactions" className="text-center text-decoration-none">
-        <WalletMinimal size={24} className={`nav-icon ${isActive('/transactions') ? 'active' : ''}`} />
-        <div className={`small ${isActive('/transactions') ? 'text-black' : 'text-secondary'}`}>Transactions</div>
+
+      <Link
+        to="/transactions"
+        className={`bottom-tab ${isActive('/transactions') ? 'is-active' : ''}`}
+        aria-current={isActive('/transactions') ? 'page' : undefined}
+      >
+        <span className="icon-wrap">
+          <WalletMinimal size={22} />
+        </span>
+        <small className="label">Transactions</small>
       </Link>
-      <Link to="/insights" className="text-center text-decoration-none">
-        <Sparkles size={24} className={`nav-icon ${isActive('/insights') ? 'active' : ''}`} />
-        <div className={`small ${isActive('/insights') ? 'text-black' : 'text-secondary'}`}>Progress</div>
+
+      <Link
+        to="/insights"
+        className={`bottom-tab ${isActive('/insights') ? 'is-active' : ''}`}
+        aria-current={isActive('/insights') ? 'page' : undefined}
+      >
+        <span className="icon-wrap">
+          <Sparkles size={22} />
+        </span>
+        <small className="label">Progress</small>
       </Link>
-      <Link to="/settings" className="text-center text-decoration-none">
-        <Settings size={24} className={`nav-icon ${isActive('/settings') ? 'active' : ''}`} />
-        <div className={`small ${isActive('/settings') ? 'text-black' : 'text-secondary'}`}>Settings</div>
+
+      <Link
+        to="/settings"
+        className={`bottom-tab ${isActive('/settings') ? 'is-active' : ''}`}
+        aria-current={isActive('/settings') ? 'page' : undefined}
+      >
+        <span className="icon-wrap">
+          <Settings size={22} />
+        </span>
+        <small className="label">Settings</small>
       </Link>
     </nav>
   );

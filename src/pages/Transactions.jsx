@@ -296,7 +296,7 @@ export default function Transactions() {
       )}
 
       {/* Alta (centrado en flujo, o cambia a variant="fab" si prefieres flotante) */}
-      <AddNewExpense variant="inline" defaultKind="expense" onAdd={handleAdd} />
+      <AddNewExpense variant="fab" defaultKind="expense" onAdd={handleAdd} />
 
       {/* Modal de edición */}
       <EditExpenseModal tx={editingTx} onUpdate={handleUpdate} />
